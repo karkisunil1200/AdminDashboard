@@ -2,6 +2,7 @@ import {
   CalendarToday,
   LocationSearching,
   PermIdentity,
+  Publish,
 } from "@mui/icons-material";
 import MailOutline from "@mui/icons-material/MailOutline";
 import React from "react";
@@ -50,7 +51,67 @@ const User = () => {
             </div>
           </div>
         </div>
-        <div className="userUpdate"></div>
+        <div className="userUpdate">
+          <span className="userUpdateTitle">Edit</span>
+          <form className="userUpdateForm">
+            <div className="userUpdateLeft">
+              <div className="userUpdateItem">
+                <label>Username</label>
+                <input
+                  type="text"
+                  placeholder="skarki1200"
+                  className="userUpdateInput"
+                />
+              </div>
+              <div className="userUpdateItem">
+                <label>Full Name</label>
+                <input
+                  type="text"
+                  placeholder="skark marki"
+                  className="userUpdateInput"
+                />
+              </div>
+              <div className="userUpdateItem">
+                <label>Email</label>
+                <input
+                  type="email"
+                  placeholder="skarki1200@gmail.com"
+                  className="userUpdateInput"
+                />
+              </div>
+              <div className="userUpdateItem">
+                <label>Phone</label>
+                <input
+                  type="text"
+                  placeholder="234-222-3232"
+                  className="userUpdateInput"
+                />
+              </div>
+              <div className="userUpdateItem">
+                <label>Address</label>
+                <input
+                  type="text"
+                  placeholder=" 1211 some other street "
+                  className="userUpdateInput"
+                />
+              </div>
+            </div>
+            <div className="userUpdateRight">
+              <div className="userUpdateUpload">
+                <img
+                  src="https://images2.alphacoders.com/164/164942.png"
+                  alt=""
+                  className="userUpdateImg"
+                />
+                <label htmlFor="file">
+                  <Publish className="userUpdateIcon" />
+                </label>
+                <input style={{ display: "none" }} type="file" id="file" />
+              </div>
+              <button className="userUpdateButton">Update</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
