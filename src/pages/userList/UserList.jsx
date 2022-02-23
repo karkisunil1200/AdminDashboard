@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 
 import "./userList.css";
 import { DeleteOutline } from "@mui/icons-material";
+import { userRows } from "../../dummyData";
+import { Link } from "react-router-dom";
 
 const UserList = () => {
+  const [data, setData] = useState(userRows);
+
+  const handleDelete = (id) => {
+    setData(data.filter((item) => item.id !== id));
+  };
+
   const columns = [
     { field: "id", headerName: "ID", width: 130 },
     {
@@ -38,100 +46,23 @@ const UserList = () => {
       renderCell: (params) => {
         return (
           <>
-            <button className="userListEdit">Edit</button>
-            <DeleteOutline className="userListDelete" />
+            <Link to={`/user/${params.id}`}>
+              <button className="userListEdit">Edit</button>
+            </Link>
+            <DeleteOutline
+              className="userListDelete"
+              onClick={() => handleDelete(params.row.id)}
+            />
           </>
         );
       },
-    },
-  ];
-  const rows = [
-    {
-      id: 1,
-      userName: "John Snow",
-      avatar: "https://images7.alphacoders.com/650/650008.jpg",
-      email: "john@gmail.com",
-      status: "active",
-      transaction: "$120.34",
-    },
-    {
-      id: 2,
-      userName: "John Snow",
-      avatar: "https://images7.alphacoders.com/650/650008.jpg",
-      email: "john@gmail.com",
-      status: "active",
-      transaction: "$120.34",
-    },
-    {
-      id: 3,
-      userName: "John Snow",
-      avatar: "https://images7.alphacoders.com/650/650008.jpg",
-      email: "john@gmail.com",
-      status: "active",
-      transaction: "$120.34",
-    },
-    {
-      id: 4,
-      userName: "John Snow",
-      avatar: "https://images7.alphacoders.com/650/650008.jpg",
-      email: "john@gmail.com",
-      status: "active",
-      transaction: "$120.34",
-    },
-    {
-      id: 5,
-      userName: "John Snow",
-      avatar: "https://images7.alphacoders.com/650/650008.jpg",
-      email: "john@gmail.com",
-      status: "active",
-      transaction: "$120.34",
-    },
-    {
-      id: 6,
-      userName: "John Snow",
-      avatar: "https://images7.alphacoders.com/650/650008.jpg",
-      email: "john@gmail.com",
-      status: "active",
-      transaction: "$120.34",
-    },
-    {
-      id: 7,
-      userName: "John Snow",
-      avatar: "https://images7.alphacoders.com/650/650008.jpg",
-      email: "john@gmail.com",
-      status: "active",
-      transaction: "$120.34",
-    },
-    {
-      id: 8,
-      userName: "John Snow",
-      avatar: "https://images7.alphacoders.com/650/650008.jpg",
-      email: "john@gmail.com",
-      status: "active",
-      transaction: "$120.34",
-    },
-    {
-      id: 9,
-      userName: "John Snow",
-      avatar: "https://images7.alphacoders.com/650/650008.jpg",
-      email: "john@gmail.com",
-      status: "active",
-      transaction: "$120.34",
-    },
-    {
-      id: 10,
-      userName: "John Snow",
-      avatar: "https://images7.alphacoders.com/650/650008.jpg",
-      email: "john@gmail.com",
-      status: "active",
-      transaction: "$120.34",
     },
   ];
 
   return (
     <div className="userList">
       <DataGrid
-        rows={rows}
+        rows={data}
         disableSelectionOnClick
         columns={columns}
         pageSize={8}
