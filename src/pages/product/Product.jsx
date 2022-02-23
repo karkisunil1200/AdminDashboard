@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Chart from "../../components/chart/Chart";
 import "./product.css";
 import { productData } from "../../dummyData";
+import { Publish } from "@mui/icons-material";
 
 const Product = () => {
   return (
@@ -47,7 +48,38 @@ const Product = () => {
           </div>
         </div>
       </div>
-      <div className="productBottom"></div>
+      <div className="productBottom">
+        <form className="productForm">
+          <div className="productFormLeft">
+            <label>Product Name</label>
+            <input type="text" placeholder="Apple Airpods" />
+            <label>In Stock</label>
+            <select name="inStock" id="idStock">
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+            <label>Active</label>
+            <select name="active" id="active">
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+          <div className="productFormRight">
+            <div className="productUpload">
+              <img
+                src="https://images8.alphacoders.com/650/650005.jpg"
+                alt=""
+                className="productUploadImg"
+              />
+              <label for="file">
+                <Publish />
+              </label>
+              <input type="file" id="file" style={{ display: "none" }} />
+            </div>
+            <button className="productButton">Update</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
