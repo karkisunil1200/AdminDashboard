@@ -214,3 +214,18 @@ export const productRows = [
     transaction: "$120.34",
   },
 ];
+
+export const productData = [
+  {
+    name: "Jan",
+    sales: 1280,
+  },
+  {
+    name: "Feb",
+    sales: 1780,
+  },
+  {
+    name: "March",
+    sales: 2780,
+  },
+];
