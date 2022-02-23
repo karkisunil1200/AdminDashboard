@@ -22,10 +22,12 @@ const Sidebar = () => {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
-            <li className="sidebarListItem active ">
-              <LineStyleIcon className="sidebarIcon" />
-              Home
-            </li>
+            <Link className="link" to="/">
+              <li className="sidebarListItem active">
+                <LineStyleIcon className="sidebarIcon" />
+                Home
+              </li>
+            </Link>
             <li className="sidebarListItem">
               <TimelineIcon className="sidebarIcon" />
               Timeline
