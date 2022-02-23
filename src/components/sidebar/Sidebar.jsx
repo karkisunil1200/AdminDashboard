@@ -13,6 +13,7 @@ import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import InsightsIcon from "@mui/icons-material/Insights";
 import ReportIcon from "@mui/icons-material/Report";
 import PersonIcon from "@mui/icons-material/Person";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
@@ -39,14 +40,18 @@ const Sidebar = () => {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Quick Menu</h3>
           <ul className="sidebarList">
-            <li className="sidebarListItem ">
-              <PersonIcon className="sidebarIcon" />
-              Users
-            </li>
-            <li className="sidebarListItem">
-              <Inventory2Icon className="sidebarIcon" />
-              Products
-            </li>
+            <Link to="/users" className="link">
+              <li className="sidebarListItem ">
+                <PersonIcon className="sidebarIcon" />
+                Users
+              </li>
+            </Link>
+            <Link to="/products" className="link">
+              <li className="sidebarListItem">
+                <Inventory2Icon className="sidebarIcon" />
+                Products
+              </li>
+            </Link>
             <li className="sidebarListItem">
               <AttachMoneyIcon className="sidebarIcon" />
               Transactions
